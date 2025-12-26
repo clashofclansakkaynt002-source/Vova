@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penalty Pro: Duel & Bot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="stadium">
+        <div id="main-menu">
+            <h1>PENALTY PRO</h1>
+            <div class="menu-box">
+                <button class="menu-btn" onclick="showBotDifficulty()">ГРАТИ ПРОТИ БОТА</button>
+                <button class="menu-btn" onclick="startPvP()">ГРАТИ 1 НА 1 (PvP)</button>
+            </div>
+            <div id="difficulty-box" style="display:none">
+                <p>ОБЕРИ СКЛАДНІСТЬ:</p>
+                <button class="diff-btn easy" onclick="startBot('easy')">ЛЕГКО</button>
+                <button class="diff-btn medium" onclick="startBot('medium')">СЕРЕДНЬО</button>
+                <button class="diff-btn hard" onclick="startBot('hard')">ЛЕГЕНДА</button>
+            </div>
+        </div>
+
+        <div id="game-ui" style="display:none">
+            <div id="ui-header">
+                <div class="team-info" id="p1-label">ГРАВЕЦЬ 1: <span id="score1">0</span></div>
+                <div id="attempts-bar"></div>
+                <div class="team-info" id="p2-label">БОТ: <span id="score2">0</span></div>
+            </div>
+
+            <div id="goal">
+                <div id="net"></div>
+                <div id="goalkeeper">
+                    <div class="gk-head"></div>
+                    <div class="gk-body">
+                        <div class="gk-arm left"><div class="glove"></div></div>
+                        <div class="gk-arm right"><div class="glove"></div></div>
+                    </div>
+                    <div class="gk-legs"><div class="leg l"></div><div class="leg r"></div></div>
+                </div>
+            </div>
+
+            <div id="ball"></div>
+
+            <div id="action-screen">
+                <h2 id="turn-instruction">ВАШ УДАР!</h2>
+                <div id="controls">
+                    <button class="kick-btn" onclick="handleChoice('left')">ВЛІВО</button>
+                    <button class="kick-btn" onclick="handleChoice('center')">ЦЕНТР</button>
+                    <button class="kick-btn" onclick="handleChoice('right')">ВПРАВО</button>
+                </div>
+                <div id="pass-msg" style="display:none">ПЕРЕДАЙ ТЕЛЕФОН</div>
+                <button id="btn-ready" style="display:none" onclick="startStrikerPhase()">ГОТОВИЙ</button>
+            </div>
+        </div>
+
+        <div id="overlay" style="display:none">
+            <h1 id="winner-msg">ПЕРЕМОГА!</h1>
+            <button class="restart-btn" onclick="location.reload()">В МЕНЮ</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
